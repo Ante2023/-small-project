@@ -1,0 +1,16 @@
+version: '3.1' # version de este dcker compose
+
+services:
+  coderr_db: #Nombre del servicio
+    image: mysql:5.7
+    volumes:
+      - "./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql" #Primero copia, "desde acá -> acá "
+    command: --init-file /docker-entrypoint-initdb.d/init.sql #Luego exe este comando "--init-file con ese arg /docker-...."
+    ports:
+      - "3312:3306"
+    environment:
+      MYSQL_DATABASE: codrr_db
+      MYSQL_ROOT_USER: ucodrr
+      MYSQL_USER: ucodrr
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret

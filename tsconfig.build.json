@@ -1,0 +1,7 @@
+{ 
+    "//":"Hago una extención de configuración desde ./tsconfig.json",
+    "extends":"./tsconfig.json",
+        
+    "//":"ignora esto dirs cuando hagas tipado y la transpilacióm ",    
+    "exclude": ["node_modules","dist"]
+}
